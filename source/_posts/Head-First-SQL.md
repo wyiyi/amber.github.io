@@ -1,4 +1,4 @@
-## Head First SQL | [8.4](https://book.douban.com/subject/2334295/)
+## [Head First SQL](https://book.douban.com/subject/2334295/)
 
 * 一、数据和表：保存所有东西的地方
 * 数据库：保存表和其它相关sql结构的内容
