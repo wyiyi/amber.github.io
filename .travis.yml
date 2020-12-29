@@ -23,4 +23,4 @@ branches:
     - dev
 env:
  global:
-   - GH_REF: github.com/wyiyi/amber.github.io
+   - GH_REF: github.com/wyiyi/amber.github.io.git
