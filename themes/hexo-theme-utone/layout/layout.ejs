@@ -44,7 +44,7 @@
               <li><a href="<%- url_for(theme.menu[i]) %>"> <%= __(i) %> </a></li>
             <% } %>
             <li>
-              <img id="search-img" src="/images/search.svg" alt="search" />
+              <img id="search-img" src="/amber/images/search.svg" alt="search" />
             </li>
           </ul>
           <% if (page.content && !is_current('about')) { %> 
@@ -55,12 +55,12 @@
       <div id="main-right"><%- body %></div>
     </div>
     <div id="footer"><%= __('powered_by') %></div>
-    <img id="top" src="/images/up-circle.svg" alt="top" />
+    <img id="top" src="/amber/images/up-circle.svg" alt="top" />
     <% if (config.site_search) { %>
       <div id="search-mask"></div>
       <div id="search-pop">
         <input type="text" id="search-input" placeholder="请输入关键词" />
-        <img id="search-close" src="/images/close-circle.svg" alt="close" />
+        <img id="search-close" src="/amber/images/close-circle.svg" alt="close" />
         <div id="search-body">
           <ul id="search-ul"></ul>
         </div>
