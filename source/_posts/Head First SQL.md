@@ -1,3 +1,9 @@
+---
+title: Head First SQL
+date: 2020.01.01 
+tags: books
+---
+
 # Head First SQL
 
 ##  让你的大脑顺从你的方法     
