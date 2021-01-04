@@ -1,10 +1,8 @@
 ---
 title: Head First SQL
-date: 2020.01.01 
+date: 2020.01.02 
 tags: books
 ---
-
-# Head First SQL
 
 ##  让你的大脑顺从你的方法     
 - 慢慢来, 理解越多, 需要强记的就越少
@@ -17,7 +15,7 @@ tags: books
 - 用心感受
 - 动手设计
 
-#### 一、数据和表: 保存所有东西的地方
+### 一、数据和表: 保存所有东西的地方
 - 数据库: 保存表和其它相关sql结构的内容
 - 表: 数据库中 包含数据的结构, 有行和列组成
 - 大写和下划线有助于编写 SQL
@@ -33,7 +31,7 @@ INSERT INTO your_table（column_name1,column_name2,...）VALUES ('value1', 'valu
 SELECT * FROM my_contacts;
 ~~~~
 
-#### 二、select 语句: 去的精美包装里的数据
+### 二、select 语句: 去的精美包装里的数据
 - 单引号是特殊字符: 当自己单独使用时, 加上反斜线转义
 ~~~~ 
 insert into my_contacts(location) values ('Grover\'s Mill');
@@ -79,7 +77,7 @@ SELECT  date_name FROM black_book WHERE  rating IN('innovative','fabulous', 'del
 ~~~~ 
 - NOT IN （查询结果集不在值的集合内）, 可与BETWEEN...AND , 和LIKE一起使用, 注意: NOT紧跟在WHERE后边, 当与AND、OR一起使用时, 直接放在AND、OR后面
 
-#### 三、Delete和Update: 改变是件好事
+### 三、Delete和Update: 改变是件好事
 - DELETE 不能删除单一列中的值或表中某一列的所有值、慎用（先使用 `select` 语句确定）;
 - UPDATE 可以改变单一列或多列的值, 交与WHERE决定、SET子句加入column = value组, 以逗号分隔、取代了DELETE和INSERT、与数学运算符一起使用;
 ~~~~  
@@ -88,7 +86,7 @@ DELETE FROM clown_info WHERE activities = 'dancing';
 UPDATE  dought_ratings SET type='glazde' where type='plain glazed';
 ~~~~ 
 
-#### 四、聪明的表设计: 为什么要规范化
+### 四、聪明的表设计: 为什么要规范化
 使用数据的方式将影响设置表的方式
   - 为什么要规范化: 
       - 让数据具有原子性（表示在同一列中不会存储多个类型相同的数据;不会用多个列存储类型相同的数据）;
@@ -103,7 +101,7 @@ CREATE TABLE my_contacts （contact_id INT NOT NULL AUTO_INCREMENT,last_name var
 SHOW CREATE TABLE;
 ~~~~ 
 
-#### 五、Alter : 改写历史
+### 五、Alter : 改写历史
 - ALTER可以调整列的顺序: FIRST、LAST、BEFORE cloumn_name、AFTER cloumn_name、THIRD...
 - 使用RENMAE改变表名
 - 想同时改变列的名称和类型用 AILTER 搭配 CHANGE
@@ -166,7 +164,7 @@ UPDATE my_contact SET colum_name= newvalue
 UPDATE my_contact SET state= RIGHT(location, 2)  截取location列的最后两个字符
 ~~~~ 
    
-#### 六、select进阶: 以新视角看你的数据
+### 六、select进阶: 以新视角看你的数据
 - 指定列按条件更新: 
 ~~~~ 
 UPDATE my_table SET new_column=
@@ -193,14 +191,14 @@ SELECT COUNT(DISTINCT sales_date) FROM cookie_sales;
 
 - LIMIT: 明确指定返回记录的数量, 以及从哪一条记录开始返回
 
-#### 七、多张表的数据设计: 拓展你的表
+### 七、多张表的数据设计: 拓展你的表
 
 - SUBSTRING_INDEX
 ~~~~ 
 SELECT * from my_contacts where gender='F' AND SUBSTRING_INDEX(interest, ',', 1) = 'animals'; --- 只有第一项兴趣为animals的女性才会出现在查询结果
 ~~~~ 
 
-#### 八、联接与多张表的操作: 不能单独存在
+### 八、联接与多张表的操作: 不能单独存在
 - 一列的多个值, 拆分成多列: 
 ~~~~ 
 UPDATE my_contacts SET interest1 = SUBSTRING _INDEX(interests, ',', 1);
@@ -244,7 +242,7 @@ SELECT boys.boy,toys.toy FROM boys INNER JOIN toys ON boys.toy_id <> toys.toy_id
 SELECT boys.boy,toys.toy FROM boys NATURAL JOIN toys;
 ~~~~
 
-#### 九、子查询: 查询中的查询
+### 九、子查询: 查询中的查询
 - 子查询(子查询有助于避免数据重复, 让查询更加动态灵活): 只不过是查询里的查询;
 ~~~~
 SELECT some_column,another_column FROM table WHERE column = (SELECT column FROM table);
@@ -274,7 +272,7 @@ SELECT mc.first8_name,mc.last_name,mc.phone,jc.title,
     mc.contact_id = jc.contact_id); 
 ~~~~
 
-#### 十、外连接、自连接与联合: 新策略
+### 十、外连接、自连接与联合: 新策略
 	* 
 - 外联接 
   - LEAFT OUTER JOIN (左外联接): 接收左表的所有行, 并用这些行与右表中的行进行匹配;
@@ -331,7 +329,7 @@ SELECT mc.first8_name,mc.last_name,mc.phone,jc.title,
      ON jc.title = j1.title;
 ~~~~
 
-#### 十一、约束、视图与事务: 人多手杂, 数据库受不了
+### 十一、约束、视图与事务: 人多手杂, 数据库受不了
 - 检查约束: check---列约束
    - check检查约束限定允许插入某个列的值, 与where 子句都使用相同的条件表达式
    - 所有运算符-AND,OR,IN,NOT,BETWEEN 都可以用check,但是不能使用子查询;
@@ -369,7 +367,7 @@ SELECT mc.first8_name,mc.last_name,mc.phone,jc.title,
     ALTER TABLE your_table TYPE = InnoDB;
    ~~~~
   
-#### 十二、安全性: 保护你的资产
+### 十二、安全性: 保护你的资产
 - 给数据库设置密码
 ~~~~
 MYSQL:  SET PASSWORD FOR 'root@localhost'= PASSWORD('b4dc10wnz');

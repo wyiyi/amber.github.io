@@ -1,6 +1,6 @@
 ---
 title:  Effective Java
-date: 2020.01.04 
+date: 2020.01.03
 tags: books
 ---
 # Effective Java
