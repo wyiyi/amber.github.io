@@ -1,6 +1,6 @@
 ---
 title: Head First SQL
-date: 2020.01.02 
+date: 2021.01.02 
 tags: books
 ---
 Head First SQL is about RDBMS (databases) specifically mySQL (version 5.0 or newer) and includes features of other databases. The book defines a database, demonstrates how to navigate an existing database, and teaches how to create simple and complex databases, as well as how to let a database grow from simple to complex.
