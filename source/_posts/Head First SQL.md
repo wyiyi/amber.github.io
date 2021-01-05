@@ -3,8 +3,11 @@ title: Head First SQL
 date: 2020.01.02 
 tags: books
 ---
+Head First SQL is about RDBMS (databases) specifically mySQL (version 5.0 or newer) and includes features of other databases. The book defines a database, demonstrates how to navigate an existing database, and teaches how to create simple and complex databases, as well as how to let a database grow from simple to complex.
 
-##  让你的大脑顺从你的方法     
+Foundational understanding of database construction and navigation is the focus. The target audience is those brand-new to the topic as well as those with an acquaintance with the subject and the need for a greater conceptual understanding of databases.
+
+让你的大脑顺从你的方法     
 - 慢慢来, 理解越多, 需要强记的就越少
 - 勤做练习, 写下你的心得笔记
 - 认真阅读"没有蠢问题"单元
@@ -14,6 +17,9 @@ tags: books
 - 倾听大脑的声音
 - 用心感受
 - 动手设计
+
+
+
 
 ### 一、数据和表: 保存所有东西的地方
 - 数据库: 保存表和其它相关sql结构的内容
