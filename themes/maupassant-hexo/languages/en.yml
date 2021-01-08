@@ -3,9 +3,9 @@ blog: Blog
 albums: Albums
 categories: Categories
 tags: Tags
-archive: Archive
+archive: Tags
 links: Links
-about: About
+about: Resume
 recent: Recent
 next: Next
 previous: Previous
