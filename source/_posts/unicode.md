@@ -1,5 +1,5 @@
 ---
-title: 编码格式之我见
+title: Byte-Order Mark
 date: 2021.01.13
 tag: 'Encoding'
 ---
