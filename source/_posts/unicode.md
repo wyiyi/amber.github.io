@@ -115,7 +115,6 @@ $ file 16be.txt
 - 使用 `vi` 打开查看文件内容
 - 查看 bom.txt 文件的十六进制 `:%!xxd` 显示内容：
 `0000000: efbb bf61 6263 0a   ... abc.`
-- 查看bom.txt文件的十六进制`:%!xxd`显示内容：`0000000: efbb bf61 6263 0a   ... abc.`
 其中包含`EF BB BF` 即为 BOM 标记
 
 ### 如何添加或去掉 BOM
