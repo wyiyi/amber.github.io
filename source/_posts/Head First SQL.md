@@ -1,7 +1,7 @@
 ---
 title: Head First SQL
 date: 2021.01.02 
-tags: Books
+tags: SQL
 categories: Books  
 mathjax: true 
 ---

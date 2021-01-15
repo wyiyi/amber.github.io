@@ -1,7 +1,7 @@
 ---
 title: Byte-Order Mark
 date: 2021.01.13
-tag: Technology
+tag: Encoding
 categories: Technology  
 mathjax: true 
 ---

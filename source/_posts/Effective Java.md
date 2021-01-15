@@ -1,7 +1,7 @@
 ---
 title:  Effective Java
 date: 2021.01.03
-tags: Books
+tags: Java
 categories: Books  
 mathjax: true 
 ---
