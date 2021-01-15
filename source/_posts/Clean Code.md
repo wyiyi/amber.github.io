@@ -2,6 +2,8 @@
 title:  Clean Code
 date: 2021.01.04 
 tags: Books
+categories: Books  
+mathjax: true 
 ---
 软件质量, 不但依赖于架构及项目管理, 而且与代码质量紧密相关。 
 本书主要讲述了代码质量与其整洁度成正比的道理, 并由此揭示代码整洁之道。

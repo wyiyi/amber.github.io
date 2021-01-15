@@ -1,7 +1,9 @@
 ---
 title: Byte-Order Mark
 date: 2021.01.13
-tag: 'Encoding'
+tag: Technology
+categories: Technology  
+mathjax: true 
 ---
 
 ### 都是 “编码格式” 惹得祸
