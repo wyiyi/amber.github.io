@@ -92,9 +92,9 @@ menu:
 widgets: ## Six widgets in sidebar provided: search, category, tag, recent_posts, recent_comments and links.
   - search
   - category
+  - tag
   - recent_posts
-  - recent_comments
-  # - tag
+  # - recent_comments
   # - links
 
 links:
