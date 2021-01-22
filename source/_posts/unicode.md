@@ -7,28 +7,29 @@ mathjax: true
 ---
 
 ### 都是 “编码格式” 惹得祸
-遇到的问题：在单元测试中执行sql文件，sql的内容是正确的，但是执行报错。
+遇到的问题：在单元测试中执行sql文件，sql的内容是正确的，但是执行报错。扎心。
+重现该场景，关键代码如下：完整实例可见[仓库](https://github.com/wyiyi/bronze) 
 ~~~~
 @SpringBootTest
 class DemoTest {
 
     @Test
     @Sql("/com/amber/demo/init.sql")
-    // 建表语句：create table USER(ID NUMBER(36) not null, NAME VARCHAR, SEX  VARCHAR,ADDR VARCHAR);
+    // 建表语句： drop table if exists USER; create table USER(ID int(11) NOT NULL AUTO_INCREMENT, NAME VARCHAR, SEX  VARCHAR,ADDR VARCHAR);
     void test(){
        assert true;
     }
 
     @Test
     @Sql("/com/amber/demo/insert.sql")
-    // insert语句：INSERT INTO USER(ID, NAME, SEX,ADDR) VALUES (1, 'abc', 'man', 'jinzhou')
+    // insert语句：INSERT INTO USER(ID, NAME, SEX, ADDR) VALUES (1, 'liming', 'men', 'jinzhou')
     void insert(){
         assert true;
     }
 
     @Test
     @Sql("/com/amber/demo/utf8bom.sql")
-    // insert语句：INSERT INTO USER(ID, NAME, SEX,ADDR) VALUES (2, 'anc', 'man', 'shanghai')，保存为 UTF-8 with BOM 的编码格式，失败
+    // insert语句：INSERT INTO USER(ID, NAME, SEX, ADDR) VALUES (2, 'anc', 'man', 'shanghai')，保存为 UTF-8 with BOM 的编码格式，失败
     void testBom(){
         assert true;
     }
@@ -86,7 +87,7 @@ Under some higher level protocols, use of a BOM may be mandatory (or prohibited)
 | ...         |   ...           |
 
 ### 怎么查看 BOM
-1. BOM 头在记事本中是看不到的， 可以使用以下工具查看：
+1. BOM 头在记事本中是看不到的，可以使用以下工具查看，文本中字符内容均为 abc ：
 - 使用十六进制编辑工具进行查看
 - 亦可使用Total Commander 文件管理工具， 查看文件， 选择options， 即可查看各种Unicode格式
 
@@ -115,16 +116,29 @@ $ file 16be.txt
 ...
 ~~~~
 - 使用 `vi` 打开查看文件内容
-- 查看 bom.txt 文件的十六进制 `:%!xxd` 显示内容：
-`0000000: efbb bf61 6263 0a   ... abc.`
+- 查看`bom.txt`文件的十六进制`:%!xxd`显示内容：
+  `0000000: efbb bf61 6263 0a   ... abc.`
 其中包含`EF BB BF` 即为 BOM 标记
 
 ### 如何添加或去掉 BOM
 1.Windows BOM 操作： 
-- 新建一个在文件，输入 `abc` 保存时选择使用 UTF-8、UTF-8 with BOM、UTF-16 LE 或者 UTF-16 BE 等格式（以 VS Code 为例）
-- 也可通过程序控制过滤掉BOM： 存在BOM 字符相关则去掉
+- 增加 BOM 编码格式：
+  新建一个文件，输入 `abc` 保存时选择使用 UTF-8、UTF-8 with BOM、UTF-16 LE 或者 UTF-16 BE 等格式（以 VS Code 为例）
+- 去掉 BOM 编码格式：
+  可通过程序控制过滤掉BOM：存在 BOM 字符相关则去掉
 
 2.linux BOM  命令操作：
+
+- utf8.txt 加上 BOM 的编码格式
+~~~~
+$ file utf8.txt
+utf8.txt: ASCII text, with no line terminators
+# 用 vi 打开文件 
+# 设置 bom 格式，执行命令 :set bomb
+# 保存并退出 vi :wq!
+$ file utf8.txt
+utf8.txt: UTF-8 Unicode (with BOM) text
+~~~~
 
 - bom.txt 去掉 BOM 的编码格式
 ~~~~
@@ -136,16 +150,7 @@ bom.txt: UTF-8 Unicode (with BOM) text, with no line terminators
 $ file bom.txt
 bom.txt: ASCII text
 ~~~~
-- utf8.txt 加上 BOM 的编码格式
-~~~~
-$ file utf8.txt
-utf8.txt: ASCII text, with no line terminators
-# 用 vi 打开文件 
-# 设置 bom 格式，执行命令 :set bomb
-# 保存并退出 vi :wq!
-$ file utf8.txt
-utf8.txt: UTF-8 Unicode (with BOM) text
-~~~~
+
 - bom.txt 的 UTF-8 with BOM 编码格式修改为 UTF-16 Little-endian 或者 UTF-16 Big-endian 的编码格式
 ~~~~
 $ file bom.txt
@@ -168,10 +173,19 @@ bom.txt: Big-endian UTF-16 Unicode text
 Linux 保存文件的编码格式为UTF-8，如：[abc.txt](https://github.com/wyiyi/amber/blob/master/contents/unicode/abc.txt) 查看编码格式：
 `abc.txt: UTF-8 Unicode text`
 - Windows 默认的编码格式为 [GBK](https://stackoverflow.com/questions/16602900/why-is-my-java-charset-defaultcharset-gbk-and-not-unicode)。
-Windows 自带的记事本等软件， 在保存一个以UTF-8编码的文件时， 会在文件开始的地方插入三个不可见的字符（0xEF 0xBB 0xBF，即BOM）。 如：[utf8.txt](https://github.com/wyiyi/amber/blob/master/contents/unicode/utf8.txt)
+Windows 自带的记事本等软件， 在保存一个以UTF-8编码的文件时， 会在文件开始的地方插入三个不可见的字符（0xEF 0xBB 0xBF， 即BOM）。 如： [utf8.txt](https://github.com/wyiyi/amber/blob/master/contents/unicode/utf8.txt)
 
 ### BOM  不是明智的选择
-根据[Unicode标准](http://www.unicode.org/versions/Unicode5.0.0/ch02.pdf) 不建议使用 UTF-8 文件的 BOM
+
+UTF-8 BOM  是文本流（0xEF、0xBB、0xBF） 开始时的字节序列，允许读取器更可靠地猜测文件在 UTF-8 中编码。
+虽然BOM字符起到了标记文件编码的作用但它并不属于文件的内容部分， 所以会产生一些问题：
+
+- BOM  用来表示编码的字节序， 但是由于字节序对 UTF-8 无效，因此不需要 BOM。
+- BOM  不仅在 JSON 中非法且破坏了JSON 解析器。
+- BOM  会阻断一些脚本： Shell scripts， Perl scripts， Python scripts， Ruby scripts， Node.js。
+- BOM 对 PHP 很不友好： PHP 不能识别 BOM 头， 且不会忽略BOM， 所以在读取、包含或者引用这些文件时， 会把BOM作为该文件开头正文的一部分。 
+根据嵌入式语言的特点， 这串字符将被直接执行（显示）出来。 
+由于页面的 `top padding` 为0， 导致无法让整个网页紧贴浏览器顶部。
 
  ##### 2.6 Encoding Schemes
  ~~~~
@@ -179,12 +193,4 @@ Windows 自带的记事本等软件， 在保存一个以UTF-8编码的文件时
  See the "Byte Order Mark" subsection in Section 16.8, Specials, for more information.
  ~~~~
 
-UTF-8 BOM 是文本流（0xEF、0xBB、0xBF）开始时的字节序列，允许读取器更可靠地猜测文件在 UTF-8 中编码。
-虽然BOM字符起到了标记文件编码的作用但它并不属于文件的内容部分， 所以会产生一些问题：
-
-- BOM 用来表示编码的字节序， 但是由于字节序对 UTF-8 无效，因此不需要 BOM。
-- BOM 不仅在 JSON 中非法且破坏了JSON 解析器。
-- BOM 会阻断一些脚本： Shell scripts，Perl scripts，Python scripts，Ruby scripts，Node.js。
-- BOM 对 PHP 很不友好： PHP 不能识别 BOM 头， 且不会忽略BOM，所以在读取、包含或者引用这些文件时，会把BOM作为该文件开头正文的一部分。 
-根据嵌入式语言的特点，这串字符将被直接执行（显示）出来。 
-由于页面的 `top padding` 为0， 导致无法让整个网页紧贴浏览器顶部。
+根据 [Unicode标准](http://www.unicode.org/versions/Unicode5.0.0/ch02.pdf) 不建议使用 UTF-8 文件的 BOM，所以在将文件保存为 UTF-8 的编码格式时，一定要注意一般不使用 UTF-8 with BOM 的编码格式。
