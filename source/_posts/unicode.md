@@ -13,7 +13,7 @@ mathjax: true
 @SpringBootTest
 class DemoTest {
 
-    @Test
+    @BeforeEach
     @Sql("/com/amber/demo/init.sql")
     // 建表语句： drop table if exists USER; create table USER(ID int(11) NOT NULL AUTO_INCREMENT, NAME VARCHAR, SEX  VARCHAR,ADDR VARCHAR);
     void test(){
@@ -27,11 +27,19 @@ class DemoTest {
         assert true;
     }
 
-    @Test
+    @Ignore
     @Sql("/com/amber/demo/utf8bom.sql")
     // insert语句：INSERT INTO USER(ID, NAME, SEX, ADDR) VALUES (2, 'anc', 'man', 'shanghai')，保存为 UTF-8 with BOM 的编码格式，失败
     void testBom(){
-        assert true;
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            Integer.parseInt("1a");
+        });
+
+        String expectedMessage = "Failed to execute SQL script statement";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+
     }
 }
 ~~~~
