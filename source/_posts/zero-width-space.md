@@ -4,7 +4,6 @@ date: 2021.03.06
 tag: Encoding
 categories: Technology  
 mathjax: true 
-
 ---
 
 大家都熟悉的 Unicode（万国码）几乎包含 [所有符号](https://unicode-table.com/)：
