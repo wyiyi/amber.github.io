@@ -1,5 +1,5 @@
 ---
-title:  number-precision
+title:  Number-Precision
 date: 2021.03.25 
 tags: Others
 categories: 
