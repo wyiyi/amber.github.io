@@ -1,5 +1,3 @@
-### 关于博主：
-博主是一个女神经~~~
+https://wyiyi.github.io/amber/contents/barcode/3426.png
 
-### 关于博客：
-本站属个人博客，记录博主学习、工作、生活，同时传递与分享各种技术
+
