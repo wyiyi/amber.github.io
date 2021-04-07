@@ -6,7 +6,7 @@ categories: Technology
 mathjax: true 
 ---
 
-# Git 使用
+# Git 的使用以及相关工具
 
 ## 常用命令：
  ```
