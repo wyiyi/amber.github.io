@@ -7,6 +7,11 @@ mathjax: true
 ---
 
 主要介绍 Git 常用命令及工具的使用。
+
+平时用到的主要是仓库clone 到本地，进行修改，提交，推送分支，合并分支，以及遇到冲突如何处理。
+
+常用的工具：IDEA，ACAP，VSCode，eclipse等工具。
+
 ![](https://wyiyi.github.io/amber/contents/git/git.png)
 
 
