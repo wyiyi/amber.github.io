@@ -11,7 +11,7 @@ mathjax: true
 ## 常用命令：
  ```
 # 从远程仓库克隆仓库代码到本地
-$ git clone http://192.168.131.211:7777/clouddrug_base/drugstore-nanchang.git
+$ git clone http://xxx.git
 # 查看分支
 $ git branch -a
 # 创建分支
