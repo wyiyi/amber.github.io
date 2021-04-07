@@ -31,11 +31,46 @@ $ git diff
 $ git push origin master
  ```
 
-## 可视化界面
+![](https://wyiyi.github.io/amber/contents/git/bash.png)
+
+![](https://wyiyi.github.io/amber/contents/git/bash1.png)
+
+![](https://wyiyi.github.io/amber/contents/git/bash2.png)
+
+![](https://wyiyi.github.io/amber/contents/git/idea1.png)
+
+![](https://wyiyi.github.io/amber/contents/git/idea.png)
+
+
+## 可视化界面操作
 ### 1、IDEA 
+![](https://wyiyi.github.io/amber/contents/git/idea2.png)
+- Local history 可以查看之前修改该文件的记录
+- Commit File 正常提交文件
+- Compare with.. 和远程比较
+- Compare with Branch... 和远程分支进行比较
+- Show History 对该文件的历史修改记录
+- Rollback... 还原文件最初的状态
+
+![](https://wyiyi.github.io/amber/contents/git/idea3.png)
+- pull 拉取远程分支到本地
+- push 推送本地分支到远程分支
 
 ### 2、ACAP
+![](https://wyiyi.github.io/amber/contents/git/acap.png)
 
+![](https://wyiyi.github.io/amber/contents/git/acap2.png)
 
+### 3、TortoiseGit 工具
+![](https://wyiyi.github.io/amber/contents/git/tortoiseGit.png)
 
-https://mp.weixin.qq.com/s/ZD_OQAJRfav1xv4__ph_cQ
+### 3、Gitlab
+- 提交合并：
+
+![](https://wyiyi.github.io/amber/contents/git/gitlab.png)
+
+- 冲突处理：
+
+![](https://wyiyi.github.io/amber/contents/git/gitlab2.png)
+
+![](https://wyiyi.github.io/amber/contents/git/gitlab1.png)
