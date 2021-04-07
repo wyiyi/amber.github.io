@@ -6,7 +6,9 @@ categories: Technology
 mathjax: true 
 ---
 
-# Git 的使用以及相关工具
+
+![](https://wyiyi.github.io/amber/contents/git/git.png)
+
 
 ## 常用命令：
  ```
