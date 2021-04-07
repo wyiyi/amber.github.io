@@ -6,8 +6,6 @@ categories: Technology
 mathjax: true 
 ---
 
-# Git 的使用以及相关工具
-
 ## 常用命令：
  ```
 # 从远程仓库克隆仓库代码到本地
