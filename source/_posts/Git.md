@@ -1,13 +1,13 @@
 ---
-title: Git
+title: Git 常用命令及工具
 date: 2021.04.06
 tags: Git
 categories: Technology  
 mathjax: true 
 ---
 
+主要介绍 Git 常用命令及工具的使用。
 ![](https://wyiyi.github.io/amber/contents/git/git.png)
-
 
 
 ## 常用命令：
