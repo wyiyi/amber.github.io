@@ -1,5 +1,5 @@
 ---
-title:  Number-Precision
+title: 精度失真的解决办法
 date: 2021.03.25 
 tags: Others
 categories: 
@@ -7,8 +7,6 @@ categories:
 mathjax: true 
 ---
 
-
-## 精度失真的解决办法
 0.1 + 0.2 != 0.3，在JS内部所有的计算都是以二进制方式计算的。所以运算 0.1+ 0.2 时要先把 0.1和 0.2 从十进制转成二进制。
 
 由于在前一篇文章[二进制算术运算](https://mp.weixin.qq.com/s/RvN33qA4ouS29ETeKY-MUw)介绍过为何会不等于0.3的原理，那么在涉及运算的时候我们应该如何解决呢？
