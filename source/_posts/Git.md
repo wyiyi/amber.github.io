@@ -101,7 +101,7 @@ $ git push origin develop
 
 
 
-## 官方文档请参考：
+## 官方文档参考：
 - [Git](https://git-scm.com/book/en/v2/)
 - [Git 分支管理模型](nvie.com/posts/a-succes)
 
