@@ -74,8 +74,9 @@ $ git push origin develop
  ```
 
 ## 可视化界面操作
+
 常用的工具：IDEA，ACAP，VSCode，eclipse等工具。
-### 1、IDEA 
+1、IDEA 
 - Local history 可以查看之前修改该文件的记录
 - Commit File 正常提交文件
 - Compare with.. 和远程比较
@@ -85,15 +86,15 @@ $ git push origin develop
 - pull 拉取远程分支到本地
 - push 推送本地分支到远程分支
 
-### 2、ACAP
+2、ACAP
 ![](https://wyiyi.github.io/amber/contents/git/acap.png)
 
 ![](https://wyiyi.github.io/amber/contents/git/acap1.png)
 
-### 3、TortoiseGit 工具
+3、TortoiseGit 工具
 ![](https://wyiyi.github.io/amber/contents/git/tortoiseGit.png)
 
-### 3、Gitlab 冲突处理
+4、Gitlab 冲突处理
 
 ![](https://wyiyi.github.io/amber/contents/git/gitlab2.png)
 
