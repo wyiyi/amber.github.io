@@ -7,7 +7,7 @@ categories:
 mathjax: true 
 ---
 
-# JS 中保留固定位数以及四舍五入
+
 在保留有效数字的时候我们经常会使用到toFixed()函数，但发现这个方法会存在一些奇怪的问题。
 
 ## toFixed() 的值错误？
