@@ -1,5 +1,5 @@
 ---
-title: 精度丢失的解决办法
+title: JS 中保留固定位数以及四舍五入
 date: 2021.03.25 
 tags: Others
 categories: 
